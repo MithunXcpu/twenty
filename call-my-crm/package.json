@@ -1,0 +1,15 @@
+{
+  "name": "call-my-crm",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Voice agent add-on that talks to a Twenty CRM workspace.",
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "license": "AGPL-3.0",
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,26 @@
+services:
+  call-my-crm:
+    build: .
+    ports:
+      - "8787:8787"
+    environment:
+      PORT: "8787"
+      LLM_PROVIDER: ${LLM_PROVIDER:-auto}
+      NVIDIA_API_KEY: ${NVIDIA_API_KEY:-}
+      NVIDIA_BASE_URL: ${NVIDIA_BASE_URL:-https://integrate.api.nvidia.com/v1}
+      NVIDIA_MODEL: ${NVIDIA_MODEL:-meta/llama-3.3-70b-instruct}
+      CRM_PROVIDER: ${CRM_PROVIDER:-auto}
+      TWENTY_API_URL: ${TWENTY_API_URL:-}
+      TWENTY_API_KEY: ${TWENTY_API_KEY:-}
+      STT_PROVIDER: ${STT_PROVIDER:-auto}
+      NVIDIA_ASR_MODEL: ${NVIDIA_ASR_MODEL:-openai/whisper-large-v3}
+      WHISPER_BASE_URL: ${WHISPER_BASE_URL:-}
+      WHISPER_API_KEY: ${WHISPER_API_KEY:-}
+      WHISPER_MODEL: ${WHISPER_MODEL:-whisper-1}
+      TTS_PROVIDER: ${TTS_PROVIDER:-browser}
+      ELEVENLABS_API_KEY: ${ELEVENLABS_API_KEY:-}
+      ELEVENLABS_VOICE_ID: ${ELEVENLABS_VOICE_ID:-}
+      ELEVENLABS_MODEL_ID: ${ELEVENLABS_MODEL_ID:-eleven_multilingual_v2}
+      TTS_HTTP_URL: ${TTS_HTTP_URL:-}
+      TTS_HTTP_API_KEY: ${TTS_HTTP_API_KEY:-}
+      TEAMS_WEBHOOK_SECRET: ${TEAMS_WEBHOOK_SECRET:-}
