@@ -1,3 +1,22 @@
+# Call My CRM
+
+A voice agent add-on for this Twenty fork. On the call desk, or from a floating Call button on a record page, you can say something like “what’s open on Acme, log that they want a security review, and create a follow-up for Friday.” The agent turns that into tool calls against the CRM: look up the company or person, read open opportunities and tasks, attach a note, and create a task. The desk shows the live transcript and each tool call, then speaks the reply.
+
+This is the shape of work a Salesforce forward-deployed engineer does with Agentforce-style agents (a short conversation, tool calls, and the CRM API underneath) and the shape a CRM solutions engineer demos on a record. It is a small local add-on, not a Salesforce product and not a Teams store app. It does not use LangChain.
+
+The add-on lives in [`call-my-crm/`](call-my-crm/) and does not change Twenty’s React app or enterprise code. A one-file embed script is the record-page hook. With no API keys, it runs an offline agent against fictional sample records (Acme Robotics, Northwind Traders). Set `NVIDIA_API_KEY` to use NVIDIA’s OpenAI-compatible API, and `TWENTY_API_URL` plus `TWENTY_API_KEY` to write to a real Twenty workspace over `/rest`.
+
+```bash
+cd call-my-crm
+docker compose up --build
+```
+
+Node 22 or newer also works without Docker: `node src/server.mjs`, then open http://localhost:8787. The record-button preview is http://localhost:8787/record-preview.html. Details, the Teams webhook, and screenshots are in [`call-my-crm/docs/README.md`](call-my-crm/docs/README.md).
+
+The upstream Twenty README continues below.
+
+---
+
 <p align="center">
   <a href="https://www.twenty.com">
     <img src="./packages/twenty-website/public/images/core/logo.svg" width="100px" alt="Twenty logo" />
